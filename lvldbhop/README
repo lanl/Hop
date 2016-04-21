@@ -1,0 +1,6 @@
+Before you build, you need to set CGO_CFLAGS and CGO_LDFLAGS to include the header and
+library paths to LevelDB. For example,
+
+export CGO_CFLAGS=-I$HOME/work/leveldb/include
+export CGO_LDFLAGS=-L$HOME/work/leveldb
+

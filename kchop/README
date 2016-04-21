@@ -1,0 +1,20 @@
+The environment variable PKG_CONFIG_PATH needs to be set before trying
+to build this service. For example,
+
+export PKG_CONFIG_PATH=$HOME/kyoto/lib/pkgconfig/
+
+NewKCHop receives a single parameter, dbname that is passed eventually
+to KyotoCabinet PolyDB::open. The parameter specifies the type of the
+database as optional tuning parameters. The full description is in
+kcpolydb.h in the KyotoCabinet source code. In short, database name:
+
+*	prototype hash db (???)
+-	prototype tree db (???)
+:	stash db (???)
+*	cache hash db
+%	cache tree db
+.kch	file hash db
+.kct	file tree db
+.kcd	dir hash db
+.kcf	dir tree db
+.kcx	plain text db

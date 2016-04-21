@@ -1,0 +1,11 @@
+To build with the default remote client, just run
+
+	go build
+
+To build with the dhop client, so you can run agains DHop, run
+
+	go build -tags dhop
+
+If you want to add another client xyz, create a file xyzclnt.go and
+implement the Connect function for it there. Make it depend on tag xyz
+and add !xyz to the +build restrictions in hopclnt.go.

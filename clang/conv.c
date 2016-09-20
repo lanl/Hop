@@ -216,7 +216,6 @@ uint8_t *pack_common(HopMsg *m, uint32_t size, uint16_t type)
 	p = pint32(p, size);
 	p = pint16(p, type);
 	p = pint16(p, NOTAG);
-	m->pkt = p;
 
 	return p;
 }
@@ -266,7 +265,7 @@ void pack_tcreate(HopMsg *m, char *key, char *flags, HopValue *val)
 	m->flags = flags;
 	p = pstr(p, flags);
 	m->value.len = val->len;
-	m->value.data = p + 4;
+	m->value.data = p;
 	p = pvalue(p, val->data, val->len);
 }
 

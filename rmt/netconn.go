@@ -191,6 +191,7 @@ func (conn *Netconn) recv() {
 	}
 
 closed:
+	conn.conn.Close()		// just in case...
 	if err == nil {
 		err = errors.New("connection closed")
 	}

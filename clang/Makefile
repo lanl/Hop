@@ -1,7 +1,7 @@
 SYSNAME:=${shell uname}
 SYSNAME!=uname
-HFILES=hop.h rmt.h
-CFLAGS=-Wall -g -I . -D$(SYSNAME)
+HFILES=include/hop.h include/rmt.h
+CFLAGS=-Wall -g -I . -D$(SYSNAME) -Iinclude/
 LFLAGS=-g -L. -lhop -lcrypto -lpthread
 
 OFILES=\
@@ -12,13 +12,13 @@ OFILES=\
 all: libhop.a
 
 libhop.a: $(OFILES)
-	ar rc libhop.a $(OFILES)
-	ranlib libhop.a
+	ar rc lib/libhop.a $(OFILES)
+	ranlib lib/libhop.a
 
 $(CMDS): libhop.a
 
 clean:
-	rm -f *.o *.a *~ core.* $(CMDS)
+	rm -f *.o *.a *~ core.* $(CMDS) lib/* include/*~
 
 $(OFILES): Makefile $(HFILES)
 
